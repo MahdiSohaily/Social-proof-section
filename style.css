@@ -1,97 +1,276 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  --dark-Magenta: hsl(300, 43%, 22%);
+  --light-grayish-Magenta: hsl(300, 24%, 96%);
+  --dark-grayish-Magenta: hsl(303, 10%, 53%);
+  --soft-pink: hsl(333, 80%, 67%);
+  --white: hsl(0, 0%, 100%);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --font-size: 0.9375em;
+  --font-family: "League Spartan", sans-serif;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --size-25: 0.13em;
+  --size-50: 0.25em;
+  --size-100: 0.5em;
+  --size-200: 1em;
+  --size-300: 1.5em;
+  --size-400: 2em;
+  --size-500: 2.5em;
+  --size-600: 3em;
+  --size-700: 5em;
+  --size-800: 7em;
+  --size-900: 9em;
+  --size-xl: 10em;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-body {
+/* Remove default margin */
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+  font: inherit;
+  font-family: var(--font-family);
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
   min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* utility classes */
+.pb-100 {
+  padding-bottom: var(--size-100);
+}
+.pb-200 {
+  padding-bottom: var(--size-200);
+}
+.pb-300 {
+  padding-bottom: var(--size-300);
+}
+.pb-400 {
+  padding-bottom: var(--size-400);
+}
+.pb-500 {
+  padding-bottom: var(--size-500);
+}
+.pb-600 {
+  padding-bottom: var(--size-600);
+}
+.pb-700 {
+  padding-bottom: var(--size-700);
+}
+.pb-800 {
+  padding-bottom: var(--size-800);
+}
+.pb-900 {
+  padding-bottom: var(--size-900);
+}
+
+.text-light-magnet{
+  color: var(--light-grayish-Magenta);
+}
+.text-medium-magnet{
+  color: var(--dark-grayish-Magenta);
+}
+.text-dark-magnet{
+  color: var(--dark-Magenta);
+}
+
+.text-white{
+  color: white;
+}
+
+.bg-magnate{
+  background-color: var(--dark-Magenta);
+}
+
+.bg-light-magnet{
+  background-color: var(--light-grayish-Magenta);
+}
+
+/* general styles */
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/bg-pattern-top-mobile.svg"),
+    url("./images/bg-pattern-bottom-mobile.svg");
+  background-position: top left, bottom right;
+  background-repeat: no-repeat, no-repeat;
+}
+
+@media screen and (min-width: 40em) {
+  main {
+    background-image: url("./images/bg-pattern-top-desktop.svg"),
+      url("./images/bg-pattern-bottom-desktop.svg");
+  }
+}
+
+.primary-header {
+  color: var(--dark-Magenta);
+  font-size: var(--size-600);
+  font-weight: var(--fw-bold);
+  max-width: 12ch;
+  line-height: 0.8;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
+/* component styles */
 
 .card {
-  padding: 2em;
+  max-width: min(1050px, 90%);
+  margin: auto;
 }
 
-.read-the-docs {
-  color: #888;
+header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-block: var(--size-200);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@media screen and (min-width: 40em) {
+  header {
+    flex-direction: row;
+  }
+
+  .topic,
+  .rating {
+    flex: 50%;
+  }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.header-topic {
+  max-width: 40ch;
+  font-weight: var(--fw-medium);
+  text-align: center;
+}
+
+.rating{
+  padding: var(--size-200);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.box {
+  display: inline-block;
+  margin: var(--size-100);
+  border-radius: var(--size-100);
+  padding-block: var(--size-100);
+  padding-left: var(--size-300);
+  text-align: center;
+}
+
+
+
+.box-star {
+  display: inline-block;
+  padding-inline: var(--size-25);
+}
+
+.box-text{
+  display: block;
+  font-weight: var(--fw-bold);
+  padding-inline: var(--size-300);
+}
+
+@media screen and (min-width:40em) {
+  .primary-header{
+    text-align: left;
   }
-  a:hover {
-    color: #747bff;
+  .header-topic{
+    text-align: left;
   }
-  button {
-    background-color: #f9f9f9;
+  .box-text{
+    display: inline;
   }
+  .box {
+    width: 410px;
+    text-align: left;
+  }
+  .box:nth-child(2){
+    align-self: center;
+  }
+  .box:last-child{
+    align-self: end;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--size-300);
+}
+
+
+@media screen and (min-width: 40em) {
+  .content {
+    flex-direction: row;
+    padding-block: var(--size-500);
+  }
+}
+
+.profile-card {
+  background-color: var(--dark-Magenta);
+  padding: var(--size-400);
+  border-radius: var(--size-100);
+}
+
+.speech p {
+  max-width: 29ch;
+}
+
+.caption{
+  color: var(--soft-pink);
 }
