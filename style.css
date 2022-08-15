@@ -20,6 +20,7 @@
   --size-400: 2em;
   --size-500: 2.5em;
   --size-600: 3em;
+  --size-650: 4em;
   --size-700: 5em;
   --size-800: 7em;
   --size-900: 9em;
@@ -217,7 +218,7 @@ main {
   display: inline-block;
   margin: var(--size-100);
   border-radius: var(--size-100);
-  padding-block: var(--size-100);
+  padding-block: var(--size-200);
   padding-left: var(--size-300);
   text-align: center;
 }
@@ -237,7 +238,7 @@ main {
 
 @media screen and (min-width:40em) {
   .primary-header{
-    font-size: var(--size-600);
+    font-size: var(--size-650);
     margin: 0;
     text-align: left;
   }
@@ -250,6 +251,7 @@ main {
   .box {
     width: 410px;
     text-align: left;
+    padding-block: var(--size-200);
   }
   .box:nth-child(2){
     align-self: center;
@@ -272,6 +274,12 @@ main {
     flex-direction: row;
     padding-block: var(--size-500);
   }
+  .profile:nth-child(2){
+    margin-top: var(--size-200);
+  }
+  .profile:last-child{
+    margin-top: var(--size-300);
+  }
 }
 
 .profile-card {
@@ -289,8 +297,8 @@ main {
 .image{
   border-radius: 50%;
   overflow: hidden;
-  width: 50px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   margin-right: var(--size-300);
 }
 .info{
