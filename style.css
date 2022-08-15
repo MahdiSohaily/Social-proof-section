@@ -158,29 +158,41 @@ main {
 
 .primary-header {
   color: var(--dark-Magenta);
-  font-size: var(--size-600);
+  font-size: var(--size-500);
   font-weight: var(--fw-bold);
   max-width: 12ch;
   line-height: 0.8;
   text-align: center;
+  margin: auto;
 }
 
 /* component styles */
 
 .card {
   max-width: min(1050px, 90%);
-  margin: auto;
+  margin-block: var(--size-700);
 }
 
-header {
+.card > header {
   display: flex;
   flex-direction: column;
   position: relative;
   padding-block: var(--size-200);
 }
 
+
+.header-topic {
+  max-width: 32ch;
+  font-weight: var(--fw-medium);
+  text-align: center;
+  margin: auto
+}
+
 @media screen and (min-width: 40em) {
-  header {
+  .card{
+    margin-block: 0;
+  }
+  .card > header {
     flex-direction: row;
   }
 
@@ -188,12 +200,11 @@ header {
   .rating {
     flex: 50%;
   }
-}
 
-.header-topic {
-  max-width: 40ch;
-  font-weight: var(--fw-medium);
-  text-align: center;
+  .header-topic{
+    max-width: 40ch;
+    margin: 0;
+  }
 }
 
 .rating{
@@ -226,6 +237,8 @@ header {
 
 @media screen and (min-width:40em) {
   .primary-header{
+    font-size: var(--size-600);
+    margin: 0;
     text-align: left;
   }
   .header-topic{
@@ -267,7 +280,7 @@ header {
   border-radius: var(--size-100);
 }
 
-.profile-card header{
+.card-header{
   display: flex;
   align-items: center;
   padding: 0;
